@@ -31,12 +31,11 @@ http.createServer(function(request, response) {
 
 function payloadToJson(decodedBody, callback) {
     var dataJson = JSON.parse(decodedBody.payload);
-    console.log(typeof(pullRequestRefObject.actions));
     if (pullRequestRefObject.actions.contains(dataJson.action) && pullRequestRefObject.branchesToWatch.contains(dataJson.pull_request.head.ref)) {
-	logMessage('Valid pull request');
-	callback(dataJson);
+	    logMessage('Valid pull request');
+	    callback(dataJson);
     }else {
-	logMessage('Nothing to do with current payload')
+	    logMessage('Nothing to do with current payload')
     }
 }
 
